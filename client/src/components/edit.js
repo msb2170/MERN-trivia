@@ -3,8 +3,8 @@ import { useParams, useNavigate } from "react-router";
 
 export default function Edit() {
     const [question, setQuestion] = useState({
-        questionText: "",
-        answerText: "",
+        question: "",
+        answer: "",
         questions: [],
     });
     const params = useParams();
@@ -13,7 +13,7 @@ export default function Edit() {
     useEffect(() => {
         async function fetchQuestions() {
             const id = params.id.toString();
-            const response = await fetch(`http://localhost:5000/questions/${params.id.toString()}`);
+            const response = await fetch(`http://localhost:5000/trivia/${params.id.toString()}`);
 
             if(!response.ok) {
                 const message = `An error has occurred: ${response.statusText}`;
@@ -46,8 +46,8 @@ export default function Edit() {
     async function onSubmit(e) {
         e.preventDefault();
         const editedQuestion = {
-            questionText: question.questionText,
-            answer: question.answerText
+            question: question.question,
+            answer: question.answer
         };
 
         //send a post request to update the data in the database
@@ -72,8 +72,8 @@ export default function Edit() {
                         type="text"
                         className='form-control'
                         id="questionText"
-                        value={question.questionText}
-                        onChange={(e) => updateQuestion({ questionText: e.target.value})}
+                        value={question.question}
+                        onChange={(e) => updateQuestion({ question: e.target.value})}
                     />
                 </div>
                 <div className="form-group">
@@ -82,8 +82,8 @@ export default function Edit() {
                         type="text"
                         className='form-control'
                         id="answerText"
-                        value={question.answerText}
-                        onChange={(e) => updateAnswer({ answerText: e.target.value})}
+                        value={question.answer}
+                        onChange={(e) => updateQuestion({ answer: e.target.value})}
                     />
                 </div>
                 <br />

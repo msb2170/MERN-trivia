@@ -51,7 +51,7 @@ triviaRoutes.route("/trivia/add").post((req, res) => {
     });
 });
 
-//Update a questions by id
+//Update a question by id
 triviaRoutes.route("/update/:id").post((req, response) => {
     let db_connect = dbo.getDb();
     let myQuery = { _id: ObjectId(req.params.id) };
@@ -67,7 +67,7 @@ triviaRoutes.route("/update/:id").post((req, response) => {
 triviaRoutes.route("/:id").delete((req, response) => {
     let db_connect = dbo.getDb();
     let myQuery = { _id: ObjectId(req.params.id) };
-    db_connect.collection("records").deleteOne(myQuery, (err, obj) => {
+    db_connect.collection("trivia").deleteOne(myQuery, (err, obj) => {
         if (err) throw err;
         console.log("1 document deleted");
         response.json(obj);

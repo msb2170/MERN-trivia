@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router';
 
 export default function Add() {
     const [question, setQuestion] = useState({
-        questionText: "",
-        answerText: ""
+        question: "",
+        answer: ""
     });
     const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ export default function Add() {
         //when a post is sent to the add url, add a new question to the database
         const newQuestion = {...question};
     
-        await fetch("http://localhost:5000/question/add", {
+        await fetch("http://localhost:5000/trivia/add", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -33,7 +33,7 @@ export default function Add() {
             return;
         });
     
-        setQuestion({ questionText: "", answerText: ""});
+        setQuestion({ question: "", answer: ""});
         navigate("/");
         
     }
@@ -48,7 +48,7 @@ export default function Add() {
                         className='form-control'
                         id="questionText"
                         value={question.questionText}
-                        onChange={(e) => updateQuestion({ questionText: e.target.value})}
+                        onChange={(e) => updateQuestion({ question: e.target.value})}
                     />
                 </div>
                 <div className="form-group">
@@ -58,7 +58,7 @@ export default function Add() {
                         className='form-control'
                         id="answerText"
                         value={question.answerText}
-                        onChange={(e) => updateAnswer({ answerText: e.target.value})}
+                        onChange={(e) => updateQuestion({ answer: e.target.value})}
                     />
                 </div>
                 <br />

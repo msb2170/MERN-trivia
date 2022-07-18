@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Question = (props) => (
     <tr>
-        <td>{props.question.questionText}</td>
-        <td>{props.question.answerText}</td>
+        <td>{props.question.question}</td>
+        <td>{props.question.answer}</td>
         <td>
             <Link className="btn link" to={`/edit/${props.question._id}`}>Edit</Link> |
             <button className="btn link"
@@ -24,7 +24,7 @@ export default function QuestionList() {
     //fetch the questions from the database
     useEffect(() => {
         async function getQuestions() {
-            const response = await fetch(`http://localhost:5000/question/`)
+            const response = await fetch(`http://localhost:5000/trivia/`)
 
             if(!response.ok) {
                 const message = `An error occurred: ${response.statusText}`;
@@ -73,6 +73,7 @@ export default function QuestionList() {
                     <tr>
                         <th>Question</th>
                         <th>Answer</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>{questionList()}</tbody>
