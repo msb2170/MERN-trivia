@@ -39,7 +39,7 @@ triviaRoutes.route("/trivia/:id").get((req, res) => {
 });
 
 //Add a new question
-triviaRoutes.route("/trivia/add").post((req, res) => {
+triviaRoutes.route("/trivia/add").post((req, response) => {
     let db_connect = dbo.getDb();
     let myObj = {
         question: req.body.question,
@@ -60,7 +60,14 @@ triviaRoutes.route("/update/:id").post((req, response) => {
             question: req.body.question,
             answer: req.body.answer
         },
-    }
+    };
+    db_connect
+        .collection("trivia")
+        .updateOne(myQuery, newvalues, function (err, res) {
+            if (err) throw err;
+            console.log("1 document updated");
+            response.json(res);
+        });
 });
 
 //delete a question

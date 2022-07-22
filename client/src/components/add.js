@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 export default function Add() {
     const [question, setQuestion] = useState({
         question: "",
-        answer: ""
+        answer: "",
     });
     const navigate = useNavigate();
 
@@ -47,7 +47,7 @@ export default function Add() {
                         type="text"
                         className='form-control'
                         id="questionText"
-                        value={question.questionText}
+                        value={question.question}
                         onChange={(e) => updateQuestion({ question: e.target.value})}
                     />
                 </div>
@@ -57,7 +57,7 @@ export default function Add() {
                         type="text"
                         className='form-control'
                         id="answerText"
-                        value={question.answerText}
+                        value={question.answer}
                         onChange={(e) => updateQuestion({ answer: e.target.value})}
                     />
                 </div>
