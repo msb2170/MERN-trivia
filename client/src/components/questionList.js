@@ -70,7 +70,7 @@ export default function QuestionList() {
             <h3>Question List</h3>
             <table className="table">
                 <thead>
-                    <tr>
+                    <tr className='table-content'>
                         <th>Question</th>
                         <th>Answer</th>
                         <th>Action</th>

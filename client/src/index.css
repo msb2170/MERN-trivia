@@ -1,1 +1,25 @@
-/* CSS goes here */
+:root {
+    --clr-primary: hsl(211, 39%, 23%);
+    --clr-secondary: hsl(360, 71%, 66%);
+    --clr-tertiary: rgb(146, 141, 141);
+}
+
+body {
+    background: var(--clr-primary);
+    font-family: sans-serif;
+
+}
+
+.navbar {
+    height: 4rem;
+    background-color: var(--clr-secondary);
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-content {
+    display: grid;
+    width: auto;
+    height: auto;
+    grid-template-columns: repeat(3, 1rem);
+}
