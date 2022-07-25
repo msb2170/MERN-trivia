@@ -7,7 +7,7 @@ export default function Navbar() {
         <div>
             <nav className="navbar">
                 <NavLink className="navbar-home" to="/">
-                    MERN GRIFFIN PRESENTS TRIVIA
+                    MERN GRIFFIN PRESENTS: TRIVIA
                 </NavLink>
                 <NavLink className="nav-link" to="/add">
                     ADD QUESTION
