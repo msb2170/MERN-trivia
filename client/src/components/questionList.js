@@ -6,8 +6,8 @@ const Question = (props) => (
         <td>{props.question.question}</td>
         <td>{props.question.answer}</td>
         <td>
-            <Link className="btn link" to={`/edit/${props.question._id}`}>Edit</Link> |
-            <button className="btn link"
+           <button className="btn-link"><Link  to={`/edit/${props.question._id}`}>Edit</Link></button>|
+            <button className="btn-link"
                 onClick={() => {
                     props.deleteQuestion(props.question._id);
                 }}
@@ -67,7 +67,7 @@ export default function QuestionList() {
     //display the table with the questions
     return (
         <div>
-            <h3>Question List</h3>
+            <h3 className='table-header'>Question List</h3>
             <table className="table">
                 <thead>
                     <tr className='table-content'>
