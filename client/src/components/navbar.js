@@ -12,6 +12,9 @@ export default function Navbar() {
                 <NavLink className="navbar-play" to="/play">
                     PLAY TRIVIA
                 </NavLink>
+                <NavLink className="navbar-hide" to="/hide">
+                    HIDE ANSWERS
+                </NavLink>
                 <NavLink className="nav-link" to="/add">
                     ADD QUESTION
                 </NavLink>

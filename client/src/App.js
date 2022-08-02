@@ -6,6 +6,7 @@ import Navbar from './components/navbar';
 import QuestionList from './components/questionList';
 import Add from './components/add';
 import Edit from "./components/edit";
+import Play from "./components/play";
 
 const App = () => {
     return (
@@ -15,6 +16,7 @@ const App = () => {
                 <Route exact path="/" element={<QuestionList />} />
                 <Route path="/edit/:id" element={<Edit />} />
                 <Route path="/add" element={<Add />} />
+                <Route path="/play" element={<Play />} />
             </Routes>
         </div>
     );
