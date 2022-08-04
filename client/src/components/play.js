@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 export default function Play() {
     const [singleQuestion, setSingleQuestion] = useState([]) //state variable for the question we'll answer
     const [refresh, setRefresh] = useState(true) //we want to answer this question and then later refresh and pull another question
+    const [userAnswer, setUserAnswer] = useState('')
 
     useEffect(() => {
         async function getQuestion() {
@@ -18,7 +19,7 @@ export default function Play() {
             }
 
             const questions = await response.json();
-            const question = questions[0]
+            const question = questions[Math.floor(Math.random() * questions.length)];
             setSingleQuestion(question);
         }
 
@@ -27,10 +28,30 @@ export default function Play() {
         return;
     }, [refresh]);
 
-    
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        if (userAnswer === singleQuestion.answer) {
+            alert("Correct!");
+        } else {
+            alert(`Sorry, but the correct answer was ${singleQuestion.answer}`);
+        }
+        setRefresh(true)
+    }
 
 
     return (
+    <div>
         <h1>{singleQuestion.question}</h1>
+        <form onSubmit={handleSubmit}>
+        <input 
+            type="text" 
+            id="answer-field" 
+            placeholder="Enter Answer Here" 
+            onChange={(e) => setUserAnswer(e.target.value)}>
+        </input>
+        <input type="submit" />
+        </form>
+    </div>
     )
 }
