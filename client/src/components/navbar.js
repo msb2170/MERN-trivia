@@ -3,6 +3,7 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
+
     return (
         <div>
             <nav className="navbar">
@@ -11,9 +12,6 @@ export default function Navbar() {
                 </NavLink>
                 <NavLink className="navbar-play" to="/play">
                     PLAY TRIVIA
-                </NavLink>
-                <NavLink className="navbar-hide" to="/hide">
-                    HIDE ANSWERS
                 </NavLink>
                 <NavLink className="nav-link" to="/add">
                     ADD QUESTION

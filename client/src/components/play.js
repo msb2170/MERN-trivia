@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router';
+
 
 export default function Play() {
-    const [singleQuestion, setSingleQuestion] = useState([]) 
+    const [singleQuestion, setSingleQuestion] = useState([]) //state variable for the question we'll answer
     const [refresh, setRefresh] = useState(true) //we want to answer this question and then later refresh and pull another question
 
     useEffect(() => {
@@ -27,12 +27,10 @@ export default function Play() {
         return;
     }, [refresh]);
 
-    const navigate = useNavigate();
-
+    
 
 
     return (
         <h1>{singleQuestion.question}</h1>
-        
     )
 }

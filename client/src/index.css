@@ -33,3 +33,7 @@ td {
     text-align: center;
     inline-size: 33%;
 }
+
+.answer-line-hide {
+    display: none;
+}

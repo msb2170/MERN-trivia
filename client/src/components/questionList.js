@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 
+
+
 const Question = (props) => (
+    
     <tr>
         <td>{props.question.question}</td>
-        <td>{props.question.answer}</td>
+        <td className={props.showAnswer ? null : "answer-line-hide"}>{props.question.answer}</td>
         <td>
            <button className="btn-link"><Link  to={`/edit/${props.question._id}`}>Edit</Link></button>|
             <button className="btn-link"
@@ -20,6 +23,7 @@ const Question = (props) => (
 
 export default function QuestionList() {
     const [questions, setQuestions] = useState([]);
+    const [showAnswer, setShowAnswer] = useState(false)
 
     //fetch the questions from the database
     useEffect(() => {
@@ -41,6 +45,17 @@ export default function QuestionList() {
         return;
     }, [questions.length]);
 
+    //toggle show/hide Answers
+    function toggleAnswers() {
+    
+        if (!showAnswer) {
+            setShowAnswer(true);
+        }
+        if (showAnswer) {
+            setShowAnswer(false);
+        }
+    }
+
     //delete a question
     async function deleteQuestion(id) {
         await fetch(`http://localhost:5000/${id}`, {
@@ -59,6 +74,7 @@ export default function QuestionList() {
                     question={question}
                     deleteQuestion={() => deleteQuestion(question._id)}
                     key={question._id}
+                    showAnswer={showAnswer}
                 />
             );
         });
@@ -68,6 +84,7 @@ export default function QuestionList() {
     return (
         <div>
             <h3 className='table-header'>Question List</h3>
+            <button className='show-button' onClick={toggleAnswers}>Show/Hide Answers</button>
             <table className="table">
                 <thead>
                     <tr className='table-content'>
