@@ -41,7 +41,7 @@ export default function Play() {
 
 
     return (
-    <div>
+    <div className='question-container'>
         <h1>{singleQuestion.question}</h1>
         <form onSubmit={handleSubmit}>
         <input 
