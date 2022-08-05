@@ -39,7 +39,7 @@ export default function Add() {
     }
     return (
         <div>
-            <h3>Add Question</h3>
+            <h3 className='add-header'>Add Question</h3>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <label htmlFor='questionText'>Question: </label>
