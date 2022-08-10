@@ -34,9 +34,14 @@ export default function Play() {
         if (userAnswer === singleQuestion.answer) {
             alert("Correct!");
         } else {
-            alert(`Sorry, but the correct answer was ${singleQuestion.answer}`);
+            alert(`Sorry, but the correct answer was "${singleQuestion.answer}"`);
         }
+        setUserAnswer('')
+        
         setRefresh(true)
+
+        event.target.reset();
+        
     }
 
 

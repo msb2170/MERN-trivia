@@ -23,6 +23,11 @@ nav ul {
     list-style: none;
     display: flex;
     justify-content: space-between;
+    padding: 10px;
+}
+
+.navbar-link {
+    color: var(--clr-secondary);
 }
 
 .table-header {
