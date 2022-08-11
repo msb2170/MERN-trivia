@@ -55,7 +55,7 @@ export default function Play() {
             placeholder="Enter Answer Here" 
             onChange={(e) => setUserAnswer(e.target.value)}>
         </input>
-        <input type="submit" />
+        <input type="submit" id="submit-btn" />
         </form>
     </div>
     )

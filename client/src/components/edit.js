@@ -67,7 +67,7 @@ export default function Edit() {
             <h3>Update Question</h3>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
-                    <label htmlFor='questionText'>Question: </label>
+                    <label htmlFor='questionText' id="question-label">Question: </label>
                     <input
                         type="text"
                         className='form-control'
@@ -77,7 +77,7 @@ export default function Edit() {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor='answerText'>Answer: </label>
+                    <label htmlFor='answerText' id="answer-label">Answer: </label>
                     <input
                         type="text"
                         className='form-control'
@@ -91,8 +91,8 @@ export default function Edit() {
                 <div className="form-group">
                     <input
                         type="submit"
-                        value="Add Question"
-                        className="btn submit"
+                        value="Update Question"
+                        className="btn-add"
                     />
                 </div>
             </form>

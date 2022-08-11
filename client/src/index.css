@@ -63,11 +63,13 @@ td {
     bottom: 10px;
     border-radius: 5px;
     height: 30px;
+    font-weight: bold;
+    margin-right: auto;
 }
 
 .show-button:hover {
-    cursor: pointer;
-    background-color: hsl(211, 29%, 58%);  
+    background-color: hsl(211, 48%, 48%);
+    cursor: pointer;  
 }
 
 .question-container {
@@ -77,4 +79,104 @@ td {
     justify-content: center;
     text-align: center;
     color: var(--clr-tertiary);
+}
+
+.btn-link {
+    border: none;
+    background-color: var(--clr-secondary);
+    color: var(--clr-tertiary);
+    text-decoration: none;
+    border-radius: 3px;
+    padding: 4px;
+    font-weight: bold;
+}
+
+.btn-link:hover {
+    cursor: pointer;
+    background-color: hsl(211, 48%, 48%);
+} 
+
+.edit-link {
+    text-decoration: none;
+    color: var(--clr-tertiary);
+    font-weight: bold;
+}
+
+.action-vertical-line {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#answer-field {
+    height: 3rem;
+    width: 30rem;
+    margin-bottom: 3rem;
+    font-size: larger;
+}
+
+#submit-btn {
+    margin-left: 1%;
+    background-color: var(--clr-secondary);
+    color: var(--clr-tertiary);
+    width: 30rem;
+    height: 3rem;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: larger;
+}
+
+#submit-btn:hover {
+    background-color: hsl(211, 48%, 48%);
+    cursor: pointer;
+}
+
+.add-header {
+    color: var(--clr-tertiary);
+    display: flex;
+    justify-content: center;
+}
+
+.form-group {
+    color: var(--clr-tertiary);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 15rem;
+    height: 2rem;
+    text-overflow: ellipsis;
+}
+
+#answer-label {
+    margin-right: 18px;
+}
+
+#question-label {
+    margin-right: 8px;
+}
+
+.btn-add {
+    border: none;
+    background-color: var(--clr-secondary);
+    color: var(--clr-tertiary);
+    width: 15rem;
+    height: 2rem;
+    font-weight: bold;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.btn-add:hover {
+    background-color: hsl(211, 48%, 48%);
+    cursor: pointer;
 }

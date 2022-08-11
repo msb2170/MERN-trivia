@@ -8,10 +8,11 @@ const Question = (props) => (
         <td>{props.question.question}</td>
         <td className={props.showAnswer ? null : "answer-line-hide"}>{props.question.answer}</td>
         <td>
-           <button className="btn-link"><Link  to={`/edit/${props.question._id}`}>Edit</Link></button>|
+           <button className="btn-link"><Link className='edit-link' to={`/edit/${props.question._id}`}>Edit</Link></button>
+           <span className="action-vertical-line">|</span>  
             <button className="btn-link"
                 onClick={() => {
-                    props.deleteQuestion(props.question._id);
+                   props.deleteQuestion(props.question._id);
                 }}
             >
                 Delete

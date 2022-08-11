@@ -42,21 +42,23 @@ export default function Add() {
             <h3 className='add-header'>Add Question</h3>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
-                    <label htmlFor='questionText'>Question: </label>
+                    <label htmlFor='questionText' id="question-label">Question: </label>
                     <input
                         type="text"
                         className='form-control'
                         id="questionText"
+                        placeholder='Enter question text here:'
                         value={question.question}
                         onChange={(e) => updateQuestion({ question: e.target.value})}
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor='answerText'>Answer: </label>
+                    <label htmlFor='answerText' id="answer-label">Answer: </label>
                     <input
                         type="text"
                         className='form-control'
                         id="answerText"
+                        placeholder='Enter answer text here:'
                         value={question.answer}
                         onChange={(e) => updateQuestion({ answer: e.target.value})}
                     />
@@ -67,7 +69,7 @@ export default function Add() {
                     <input
                         type="submit"
                         value="Add Question"
-                        className="btn submit"
+                        className="btn-add"
                     />
                 </div>
             </form>
