@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import { Route, Routes } from 'react-router-dom';
 
@@ -9,9 +9,19 @@ import Edit from "./components/edit";
 import Play from "./components/play";
 
 const App = () => {
-    return (
-        <div>
+    const [lightMode, setLightMode] = useState(true)
+
+    const toggleDarkMode = () => {
+        if(!lightMode) {
+            setLightMode(true);
+        } else {
+            setLightMode(false);
+        }
+    }
+    return ( 
+        <div className={lightMode ? 'container-light' : 'container-dark'}>
             <Navbar />
+            <button className='light-toggle' onClick={toggleDarkMode}>toggle</button>
             <Routes>
                 <Route exact path="/" element={<QuestionList />} />
                 <Route path="/edit/:id" element={<Edit />} />
