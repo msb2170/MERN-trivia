@@ -6,7 +6,7 @@ const Question = (props) => (
     
     <tr>
         <td>{props.question.question}</td>
-        <td className={!props.showAnswer && !props.lightMode ? "answer-line-gray" : "answer-line-black"}>{props.question.answer}</td>
+        <td className={props.showAnswer ? null : "answer-line-hide"}>{props.question.answer}</td>
         <td>
            <button className="btn-link"><Link className='edit-link' to={`/edit/${props.question._id}`}>Edit</Link></button>
            <span className="action-vertical-line">|</span>  

@@ -83,12 +83,8 @@ td {
     inline-size: 33%;
 }
 
-.answer-line-black {
-    color: var(--clr-primary);
-}
-
-.answer-line-gray {
-    color: var(--clr-tertiary);
+.answer-line-hide {
+    visibility: hidden;
 }
 
 .show-button {
