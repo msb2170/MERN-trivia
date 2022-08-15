@@ -2,11 +2,11 @@ import React from 'react';
 
 import { NavLink } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar(props) {
 
     return (
         <div className="links-container">
-            <nav className="navbar">
+            <nav className={props.lightMode ? 'nav-light' : 'nav-dark'}>
                 <ul>
                     <li>
                     <NavLink className="navbar-link" to="/">

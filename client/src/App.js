@@ -9,7 +9,7 @@ import Edit from "./components/edit";
 import Play from "./components/play";
 
 const App = () => {
-    const [lightMode, setLightMode] = useState(true)
+    const [lightMode, setLightMode] = useState(false)
 
     const toggleDarkMode = () => {
         if(!lightMode) {
@@ -20,10 +20,10 @@ const App = () => {
     }
     return ( 
         <div className={lightMode ? 'container-light' : 'container-dark'}>
-            <Navbar />
+            <Navbar lightMode={lightMode}/>
             <button className='light-toggle' onClick={toggleDarkMode}>toggle</button>
             <Routes>
-                <Route exact path="/" element={<QuestionList />} />
+                <Route exact path="/" element={<QuestionList lightMode={lightMode}/>} />
                 <Route path="/edit/:id" element={<Edit />} />
                 <Route path="/add" element={<Add />} />
                 <Route path="/play" element={<Play />} />

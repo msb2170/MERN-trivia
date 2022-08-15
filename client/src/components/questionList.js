@@ -6,7 +6,7 @@ const Question = (props) => (
     
     <tr>
         <td>{props.question.question}</td>
-        <td className={props.showAnswer ? null : "answer-line-hide"}>{props.question.answer}</td>
+        <td className={!props.showAnswer && !props.lightMode ? "answer-line-gray" : "answer-line-black"}>{props.question.answer}</td>
         <td>
            <button className="btn-link"><Link className='edit-link' to={`/edit/${props.question._id}`}>Edit</Link></button>
            <span className="action-vertical-line">|</span>  
@@ -21,7 +21,7 @@ const Question = (props) => (
     </tr>
 );
 
-export default function QuestionList() {
+export default function QuestionList(props) {
     const [questions, setQuestions] = useState([]);
     const [showAnswer, setShowAnswer] = useState(false)
 
@@ -83,9 +83,9 @@ export default function QuestionList() {
     //display the table with the questions
     return (
         <div>
-            <h3 className='table-header'>Question List</h3>
+            <h3 className={props.lightMode ? 'table-header-light' : 'table-header-dark'}>Question List</h3>
             <button className='show-button' onClick={toggleAnswers}>Show/Hide Answers</button>
-            <table className="table">
+            <table className={props.lightMode ? 'table-light' : 'table-dark'}>
                 <thead>
                     <tr className='table-content'>
                         <th>Question</th>

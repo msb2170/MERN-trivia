@@ -15,8 +15,18 @@
     background-color: var(--clr-tertiary);
 }
 
-nav {
+.nav-dark {
     background-color: rgb(41, 40, 40);
+    height: auto;
+    border-radius: 5px;
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.25rem;
+    overflow: auto;
+}
+
+.nav-light {
+    background-color: rgb(92, 89, 89);
     height: auto;
     border-radius: 5px;
     width: 100%;
@@ -36,13 +46,19 @@ nav ul {
     color: var(--clr-secondary);
 }
 
-.table-header {
+.table-header-dark {
     position: relative;
     left: 43.75%;
     color: var(--clr-tertiary);
 }
 
-table {
+.table-header-light {
+    position: relative;
+    left: 43.75%;
+    color: var(--clr-primary);
+}
+
+.table-dark {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -52,13 +68,27 @@ table {
     border-radius: 5px;
 }
 
+.table-light {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid var(--clr-primary);
+    background: var(--clr-tertiary);
+    color: var(--clr-primary);
+    border-radius: 5px;
+}
+
 td {
     text-align: center;
     inline-size: 33%;
 }
 
-.answer-line-hide {
+.answer-line-black {
     color: var(--clr-primary);
+}
+
+.answer-line-gray {
+    color: var(--clr-tertiary);
 }
 
 .show-button {
