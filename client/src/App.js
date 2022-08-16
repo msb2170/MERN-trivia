@@ -24,9 +24,9 @@ const App = () => {
             <button className={lightMode ? 'toggle-btn-light' : 'toggle-btn-dark'} onClick={toggleDarkMode}>{lightMode ? 'Dark Mode': 'Light Mode'}</button>
             <Routes>
                 <Route exact path="/" element={<QuestionList lightMode={lightMode}/>} />
-                <Route path="/edit/:id" element={<Edit />} />
-                <Route path="/add" element={<Add />} />
-                <Route path="/play" element={<Play />} />
+                <Route path="/edit/:id" element={<Edit lightMode={lightMode}/>} />
+                <Route path="/add" element={<Add lightMode={lightMode}/>} />
+                <Route path="/play" element={<Play lightMode={lightMode}/>} />
             </Routes>
         </div>
     );

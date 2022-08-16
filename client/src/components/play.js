@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 
-export default function Play() {
+export default function Play(props) {
     const [singleQuestion, setSingleQuestion] = useState([]) //state variable for the question we'll answer
     const [refresh, setRefresh] = useState(true) //we want to answer this question and then later refresh and pull another question
     const [userAnswer, setUserAnswer] = useState('')
@@ -46,7 +46,7 @@ export default function Play() {
 
 
     return (
-    <div className='question-container'>
+    <div className={props.lightMode ? 'question-container-light' : 'question-container-dark'}>
         <h1>{singleQuestion.question}</h1>
         <form onSubmit={handleSubmit}>
         <input 
