@@ -21,7 +21,7 @@ const App = () => {
     return ( 
         <div className={lightMode ? 'container-light' : 'container-dark'}>
             <Navbar lightMode={lightMode}/>
-            <button className='light-toggle' onClick={toggleDarkMode}>toggle</button>
+            <button className={lightMode ? 'toggle-btn-light' : 'toggle-btn-dark'} onClick={toggleDarkMode}>{lightMode ? 'Dark Mode': 'Light Mode'}</button>
             <Routes>
                 <Route exact path="/" element={<QuestionList lightMode={lightMode}/>} />
                 <Route path="/edit/:id" element={<Edit />} />
