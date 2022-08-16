@@ -16,7 +16,7 @@ body {
 body {
     height: 100vh;
     width: 100vw;
-    display: table;
+
 }
 
 * {
@@ -27,13 +27,14 @@ body {
     background: var(--clr-primary);
     height: 100vh;
     width: 100vw;
-    display: table-row;
+    overflow-x: hidden;
 }
 
 .container-light {
     background-color: var(--clr-tertiary);
     height: 100%;
     width: 100%;
+    overflow-x: hidden;
 }
 
 .nav-dark {
