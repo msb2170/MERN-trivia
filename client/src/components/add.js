@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 
-export default function Add() {
+export default function Add(props) {
     const [question, setQuestion] = useState({
         question: "",
         answer: "",
@@ -38,7 +38,7 @@ export default function Add() {
         
     }
     return (
-        <div>
+        <div className={props.lightMode ? "add-container-light" : "add-container-dark"}>
             <h3 className='add-header'>Add Question</h3>
             <form onSubmit={onSubmit}>
                 <div className="form-group">

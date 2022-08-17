@@ -16,7 +16,7 @@ body {
 body {
     height: 100vh;
     width: 100vw;
-
+    overflow-x: hidden;
 }
 
 * {
@@ -27,14 +27,12 @@ body {
     background: var(--clr-primary);
     height: 100%;
     width: 100%;
-    overflow-x: hidden;
 }
 
 .container-light {
     background-color: var(--clr-tertiary);
     height: 100%;
     width: 100%;
-    overflow-x: hidden;
 }
 
 .nav-dark {
@@ -161,7 +159,8 @@ td {
     justify-content: center;
     text-align: center;
     color: var(--clr-tertiary);
-    margin: auto;
+    height: calc(100vh - 100px);
+    margin: 5px 10px 15px 5px;
 }
 
 .question-container-light {
@@ -171,6 +170,8 @@ td {
     justify-content: center;
     text-align: center;
     color: var(--clr-primary);
+    height: calc(100vh - 100px);
+    margin: 5px 10px 15px 5px;
 }
 
 
@@ -230,14 +231,26 @@ input {
     cursor: pointer;
 }
 
-.add-header {
+.add-container-dark {
+    width: 100vw;
+    height: calc(100vh - 110px);
+    margin: 0;
     color: var(--clr-tertiary);
+}
+
+.add-container-light {
+    width: 100vw;
+    height: calc(100vh - 110px);
+    margin: 0;
+    color: var(--clr-primary);
+}
+
+.add-header {
     display: flex;
     justify-content: center;
 }
 
 .form-group {
-    color: var(--clr-tertiary);
     display: flex;
     justify-content: center;
     text-align: center;
