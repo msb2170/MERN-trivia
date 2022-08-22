@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 
-export default function Edit() {
+export default function Edit(props) {
     const [question, setQuestion] = useState({
         question: "",
         answer: "",
@@ -64,10 +64,10 @@ export default function Edit() {
 
     return (
         <div>
-            <h3>Update Question</h3>
+            <h3 className={props.lightMode ? "edit-header-light" : "edit-header-dark"}>Update Question</h3>
             <form onSubmit={onSubmit}>
-                <div className="form-group">
-                    <label htmlFor='questionText' id="question-label">Question: </label>
+                <div className={props.lightMode ? "form-group-light" : "form-group-dark"}>
+                    <label htmlFor='questionText' id={props.lightMode ? 'question-label-light' : 'question-label-dark'}>Question: </label>
                     <input
                         type="text"
                         className='form-control'
@@ -76,8 +76,8 @@ export default function Edit() {
                         onChange={(e) => updateQuestion({ question: e.target.value})}
                     />
                 </div>
-                <div className="form-group">
-                    <label htmlFor='answerText' id="answer-label">Answer: </label>
+                <div className={props.lightMode ? "form-group-light" : "form-group-dark"}>
+                    <label htmlFor='answerText' id={props.lightMode ? "answer-label-light" : "answer-label-dark"}>Answer: </label>
                     <input
                         type="text"
                         className='form-control'
@@ -88,7 +88,7 @@ export default function Edit() {
                 </div>
                 <br />
     
-                <div className="form-group">
+                <div className={props.lightMode ? "form-group-light" : "form-group-dark"}>
                     <input
                         type="submit"
                         value="Update Question"

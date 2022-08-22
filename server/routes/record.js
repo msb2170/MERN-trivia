@@ -16,9 +16,9 @@ const ObjectId = require("mongodb").ObjectId;
 //Get a list of all the questions
 
 triviaRoutes.route("/trivia").get((req, res) => {
-    let db_connect = dbo.getDb("trivia");
+    let db_connect = dbo.getDb("Trivia");
     db_connect
-        .collection("trivia")
+        .collection("Questions")
         .find({})
         .toArray((err, result) => {
             if (err) throw err;
@@ -31,7 +31,7 @@ triviaRoutes.route("/trivia/:id").get((req, res) => {
     let db_connect = dbo.getDb();
     let myquery = { _id: ObjectId(req.params.id) };
     db_connect
-        .collection("trivia")
+        .collection("Questions")
         .findOne(myquery, (err, result) => {
             if (err) throw err;
             res.json(result);
@@ -45,7 +45,7 @@ triviaRoutes.route("/trivia/add").post((req, response) => {
         question: req.body.question,
         answer: req.body.answer,
     };
-    db_connect.collection("trivia").insertOne(myObj, (err, res) => {
+    db_connect.collection("Questions").insertOne(myObj, (err, res) => {
         if (err) throw err;
         response.json(res)
     });
@@ -62,7 +62,7 @@ triviaRoutes.route("/update/:id").post((req, response) => {
         },
     };
     db_connect
-        .collection("trivia")
+        .collection("Questions")
         .updateOne(myQuery, newvalues, function (err, res) {
             if (err) throw err;
             console.log("1 document updated");
@@ -74,7 +74,7 @@ triviaRoutes.route("/update/:id").post((req, response) => {
 triviaRoutes.route("/:id").delete((req, response) => {
     let db_connect = dbo.getDb();
     let myQuery = { _id: ObjectId(req.params.id) };
-    db_connect.collection("trivia").deleteOne(myQuery, (err, obj) => {
+    db_connect.collection("Questions").deleteOne(myQuery, (err, obj) => {
         if (err) throw err;
         console.log("1 document deleted");
         response.json(obj);

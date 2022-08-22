@@ -41,8 +41,8 @@ export default function Add(props) {
         <div className={props.lightMode ? "add-container-light" : "add-container-dark"}>
             <h3 className='add-header'>Add Question</h3>
             <form onSubmit={onSubmit}>
-                <div className="form-group">
-                    <label htmlFor='questionText' id="question-label">Question: </label>
+                <div className={props.lightMode ? 'form-group-light' : 'form-group-dark'}>
+                    <label htmlFor='questionText' id={props.lightMode ? 'question-label-light' : 'question-label-dark'}>Question: </label>
                     <input
                         type="text"
                         className='form-control'
@@ -52,8 +52,8 @@ export default function Add(props) {
                         onChange={(e) => updateQuestion({ question: e.target.value})}
                     />
                 </div>
-                <div className="form-group">
-                    <label htmlFor='answerText' id="answer-label">Answer: </label>
+                <div className={props.lightMode ? 'form-group-light' : 'form-group-dark'}>
+                    <label htmlFor='answerText' id={props.lightMode ? 'answer-label-light' : 'answer-label-dark'}>Answer: </label>
                     <input
                         type="text"
                         className='form-control'
@@ -65,7 +65,7 @@ export default function Add(props) {
                 </div>
                 <br />
     
-                <div className="form-group">
+                <div className={props.lightMode ? 'form-group-light' : 'form-group-dark'}>
                     <input
                         type="submit"
                         value="Add Question"

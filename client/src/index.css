@@ -251,25 +251,56 @@ input {
     justify-content: center;
 }
 
-.form-group {
+.edit-header-light {
+    display: flex;
+    justify-content: center;
+    color: var(--clr-primary)
+}
+
+.edit-header-dark {
+    display: flex;
+    justify-content: center;
+    color: var(--clr-tertiary)
+}
+
+#question-label-light {
+    margin-right: 8px;
+    color: var(--clr-primary)
+}
+
+#question-label-dark {
+    margin-right: 8px;
+    color: var(--clr-tertiary);
+}
+
+#answer-label-light {
+    margin-right: 18px;
+    color: var(--clr-primary);
+}
+
+#answer-label-dark {
+    margin-right: 18px;
+    color: var(--clr-tertiary);
+}
+
+.form-group-light {
     display: flex;
     justify-content: center;
     text-align: center;
-    margin-bottom: 20px;
+    height: 24.65vh;
+}
+
+.form-group-dark {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 24.65vh;
 }
 
 .form-control {
     width: 15rem;
     height: 2rem;
     text-overflow: ellipsis;
-}
-
-#answer-label {
-    margin-right: 18px;
-}
-
-#question-label {
-    margin-right: 8px;
 }
 
 .btn-add {
