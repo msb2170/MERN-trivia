@@ -70,12 +70,15 @@ export default function QuestionList(props) {
     function questionList() {
         return questions.map((question) => {
             return (
+                
                 <Question
                     question={question}
                     deleteQuestion={() => deleteQuestion(question._id)}
                     key={question._id}
                     showAnswer={showAnswer}
+                    className="question"
                 />
+                
             );
         });
     }
@@ -93,7 +96,9 @@ export default function QuestionList(props) {
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>{questionList()}</tbody>
+                <tbody>
+                    {questionList()}
+                </tbody>
             </table>
         </div>
     );

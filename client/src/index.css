@@ -5,35 +5,18 @@
     font-family: sans-serif;
 }
 
-html,
-body {
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    height: 100vh;
-    width: 100vw;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
 * {
     box-sizing: border-box;
+    margin: 0;
+    overflow-x: hidden;
 }
 
 .container-dark {
     background: var(--clr-primary);
-    height: 100%;
-    width: 100%;
 }
 
 .container-light {
     background-color: var(--clr-tertiary);
-    height: 100%;
-    width: 100%;
 }
 
 .nav-dark {
@@ -41,7 +24,6 @@ body {
     border-radius: 5px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.25rem;
-    overflow: auto;
 }
 
 .nav-light {
@@ -49,7 +31,6 @@ body {
     border-radius: 5px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.25rem;
-    overflow: auto;
 }
 
 nav ul {
@@ -57,6 +38,7 @@ nav ul {
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    margin-right: 30px;
 }
 
 .navbar-link {
@@ -65,8 +47,8 @@ nav ul {
 
 .toggle-btn-light {
     position: fixed;
-    bottom: 10px;
-    left: 92%;
+    bottom: 0.5rem;
+    right: 0.5rem;
     background-color: var(--clr-primary);
     color: white;
     border: none;
@@ -78,8 +60,8 @@ nav ul {
 
 .toggle-btn-dark {
     position: fixed;
-    bottom: 10px;
-    left: 92%;
+    bottom: 0.5rem;
+    right: 0.5rem;
     background-color: var(--clr-tertiary);
     color: var(--clr-primary);
     border: none;
@@ -97,39 +79,46 @@ nav ul {
 
 .table-header-dark {
     position: relative;
-    left: 43.75%;
+    left: 44.75%;
     color: var(--clr-tertiary);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .table-header-light {
     position: relative;
-    left: 43.75%;
+    left: 44.75%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     color: var(--clr-primary);
 }
 
 .table-dark {
     width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
+    margin-bottom: 5px;
     border: 1px solid var(--clr-tertiary);
     background: var(--clr-primary);
     color: var(--clr-tertiary);
     border-radius: 5px;
+    padding: 5px;
 }
 
 .table-light {
     width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
+    margin-bottom: 5px; 
     border: 1px solid var(--clr-primary);
     background: var(--clr-tertiary);
     color: var(--clr-primary);
     border-radius: 5px;
+    padding: 5px;
 }
 
 td {
     text-align: center;
     inline-size: 33%;
+    padding: 5px;
 }
 
 .answer-line-hide {
@@ -140,7 +129,7 @@ td {
     background-color: var(--clr-secondary);
     color: var(--clr-tertiary);
     position: relative;
-    left: 43.25%;
+    left: 44.25%;
     bottom: 10px;
     border-radius: 5px;
     height: 30px;
@@ -160,8 +149,7 @@ td {
     justify-content: center;
     text-align: center;
     color: var(--clr-tertiary);
-    height: calc(100vh - 83px);
-    
+    height: 100vh;
 }
 
 .question-container-light {
@@ -171,10 +159,8 @@ td {
     justify-content: center;
     text-align: center;
     color: var(--clr-primary);
-    height: calc(100vh - 83px);
-    
+    height: 100vh;
 }
-
 
 .btn-link {
     border: none;
@@ -213,14 +199,15 @@ input {
     height: 3rem;
     width: 30rem;
     margin-bottom: 3rem;
+    margin-top: 2rem;
     font-size: larger;
 }
 
 #submit-btn {
-    margin-left: 1%;
+    margin-left: 2%;
     background-color: var(--clr-secondary);
     color: var(--clr-tertiary);
-    width: 30rem;
+    width: 29rem;
     height: 3rem;
     border-radius: 10px;
     font-weight: bold;
@@ -233,15 +220,13 @@ input {
 }
 
 .add-container-dark {
-    width: 100vw;
-    height: calc(100vh - 102px);
+    height: 100vh;
     margin: 0;
     color: var(--clr-tertiary);
 }
 
 .add-container-light {
-    width: 100vw;
-    height: calc(100vh - 102px);
+    height: 100vh;
     margin: 0;
     color: var(--clr-primary);
 }
@@ -249,18 +234,24 @@ input {
 .add-header {
     display: flex;
     justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 .edit-header-light {
     display: flex;
     justify-content: center;
-    color: var(--clr-primary)
+    color: var(--clr-primary);
+    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .edit-header-dark {
     display: flex;
     justify-content: center;
-    color: var(--clr-tertiary)
+    color: var(--clr-tertiary);
+    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 #question-label-light {
@@ -317,4 +308,82 @@ input {
 .btn-add:hover {
     background-color: hsl(211, 48%, 48%);
     cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+* {
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.nav-dark {
+    background-color: rgb(41, 40, 40);
+    border-radius: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1rem;
+}
+
+.nav-light {
+    background-color: rgb(92, 89, 89);
+    border-radius: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.25rem;
+    margin-right: 0.05rem;
+}
+
+.table-header-dark {
+    position: relative;
+    left: 40%;
+    color: var(--clr-tertiary);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.table-header-light {
+    position: relative;
+    left: 40%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: var(--clr-primary);
+}
+
+.show-button {
+    background-color: var(--clr-secondary);
+    color: var(--clr-tertiary);
+    position: relative;
+    left: 38%;
+    bottom: 10px;
+    border-radius: 5px;
+    height: 30px;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+#answer-field {
+    margin-left: 1.25rem;
+    height: 3rem;
+    width: 20rem;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+    font-size: larger;
+}
+
+#submit-btn {
+    margin-left: 1.25rem;
+    background-color: var(--clr-secondary);
+    color: var(--clr-tertiary);
+    width: 20rem;
+    height: 3rem;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: larger;
+}
+
 }
