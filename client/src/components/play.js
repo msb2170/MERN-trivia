@@ -10,7 +10,7 @@ export default function Play(props) {
         async function getQuestion() {
             setRefresh(false)
 
-            const response = await fetch(`http://localhost:5000/trivia/`)
+            const response = await fetch(`/trivia/`)
 
             if(!response.ok) {
                 const message = `An error occurred: ${response.statusText}`;

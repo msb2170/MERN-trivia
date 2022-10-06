@@ -21,7 +21,7 @@ export default function Add(props) {
         //when a post is sent to the add url, add a new question to the database
         const newQuestion = {...question};
     
-        await fetch("http://localhost:5000/trivia/add", {
+        await fetch("/trivia/add", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

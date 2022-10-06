@@ -28,7 +28,7 @@ export default function QuestionList(props) {
     //fetch the questions from the database
     useEffect(() => {
         async function getQuestions() {
-            const response = await fetch(`http://localhost:5000/trivia/`)
+            const response = await fetch(`/trivia/`)
 
             if(!response.ok) {
                 const message = `An error occurred: ${response.statusText}`;
@@ -58,7 +58,7 @@ export default function QuestionList(props) {
 
     //delete a question
     async function deleteQuestion(id) {
-        await fetch(`http://localhost:5000/${id}`, {
+        await fetch(`/trivia/${id}`, {
             method: "DELETE"
         })
 
