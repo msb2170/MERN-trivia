@@ -58,7 +58,7 @@ export default function QuestionList(props) {
 
     //delete a question
     async function deleteQuestion(id) {
-        await fetch(`/trivia/${id}`, {
+        await fetch(`/${id}`, {
             method: "DELETE"
         })
 

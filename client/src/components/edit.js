@@ -51,7 +51,7 @@ export default function Edit(props) {
         };
 
         //send a post request to update the data in the database
-        await fetch(`/trivia/${params.id}`, {
+        await fetch(`/update/${params.id}`, {
             method: "POST",
             body: JSON.stringify(editedQuestion),
             headers: {
