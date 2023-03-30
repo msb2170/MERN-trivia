@@ -71,7 +71,7 @@ triviaRoutes.route("/update/:id").post((req, response) => {
 });
 
 //delete a question
-triviaRoutes.route("/:id").delete((req, response) => {
+triviaRoutes.route("/trivia/:id").delete((req, response) => {
     let db_connect = dbo.getDb();
     let myQuery = { _id: ObjectId(req.params.id) };
     db_connect.collection("Questions").deleteOne(myQuery, (err, obj) => {
