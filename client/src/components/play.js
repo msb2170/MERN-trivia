@@ -10,7 +10,7 @@ export default function Play(props) {
         async function getQuestion() {
             setRefresh(false)
 
-            const response = await fetch(`/trivia/`)
+            const response = await fetch(`https://mern-trivia.vercel.app/`)
 
             if(!response.ok) {
                 const message = `An error occurred: ${response.statusText}`;

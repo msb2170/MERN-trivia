@@ -13,7 +13,7 @@ export default function Edit(props) {
     useEffect(() => {
         async function fetchQuestions() {
             const id = params.id.toString();
-            const response = await fetch(`/trivia/${params.id.toString()}`);
+            const response = await fetch(`https://mern-trivia.vercel.app/${params.id.toString()}`);
 
             if(!response.ok) {
                 const message = `An error has occurred: ${response.statusText}`;
@@ -51,7 +51,7 @@ export default function Edit(props) {
         };
 
         //send a post request to update the data in the database
-        await fetch(`/update/${params.id}`, {
+        await fetch(`https://mern-trivia.vercel.app/${params.id}`, {
             method: "POST",
             body: JSON.stringify(editedQuestion),
             headers: {
