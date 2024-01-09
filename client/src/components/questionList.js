@@ -28,7 +28,7 @@ export default function QuestionList(props) {
     //fetch the questions from the database
     useEffect(() => {
         async function getQuestions() {
-            const response = await fetch(`https://mern-trivia.vercel.app/`)
+            const response = await fetch(`https://mern-trivia.vercel.app/trivia/`)
 
             if(!response.ok) {
                 const message = `An error occurred: ${response.statusText}`;
@@ -58,7 +58,7 @@ export default function QuestionList(props) {
 
     //delete a question
     async function deleteQuestion(id) {
-        await fetch(`https://mern-trivia.vercel.app/${id}`, {
+        await fetch(`https://mern-trivia.vercel.app/trivia/${id}`, {
             method: "DELETE"
         })
 

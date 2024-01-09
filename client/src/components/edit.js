@@ -13,7 +13,7 @@ export default function Edit(props) {
     useEffect(() => {
         async function fetchQuestions() {
             const id = params.id.toString();
-            const response = await fetch(`https://mern-trivia.vercel.app/${params.id.toString()}`);
+            const response = await fetch(`https://mern-trivia.vercel.app/trivia/${params.id.toString()}`);
 
             if(!response.ok) {
                 const message = `An error has occurred: ${response.statusText}`;
