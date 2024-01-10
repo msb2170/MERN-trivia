@@ -13,9 +13,9 @@ app.use(require("./routes/record"))
 //driver connection
 const dbo = require("./db/conn");
 
-app.listen(port, () => {
+app.listen(port, async () => {
     //perform db connection upon server startup
-    dbo.connectToServer((err) => {
+    await dbo.connectToServer((err) => {
         if (err) console.error(err);
     });
     console.log(`Server is running on port: ${port}`);

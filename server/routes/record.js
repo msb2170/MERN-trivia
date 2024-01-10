@@ -1,4 +1,4 @@
-const { response } = require('express');
+
 const express = require('express');
 
 //triviaRoutes is an instance of the express router
