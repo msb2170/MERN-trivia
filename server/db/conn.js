@@ -9,6 +9,7 @@ let _db;
 
 module.exports = {
     connectToServer: async function (callback) {
+        console.log("connected")
 
         try {
             await client.connect((err, db) => {
