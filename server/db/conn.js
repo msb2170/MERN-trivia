@@ -1,5 +1,5 @@
 const { MongoClient } = require("mongodb");
-const Db = process.env.ATLAS_URI;
+const Db = process.env.MONGO_URI;
 const client = new MongoClient(Db, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -12,7 +12,7 @@ module.exports = {
         console.log("connected")
 
         try {
-            await client.connect((err, db) => {
+             client.connect((err, db) => {
                 //verify we got a good 'db' object
                 if (db)
                 {

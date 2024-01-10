@@ -20,10 +20,10 @@ triviaRoutes.route("/trivia").get((req, res) => {
     db_connect
         .collection("Questions")
         .find({})
-        .toArray()
-        .then((data) => {
-            res.json(data)
-        })
+        .toArray((err, result) => {
+            if (err) throw err;
+            res.json(result);
+        });
 });
 
 //Get a single question by its id
