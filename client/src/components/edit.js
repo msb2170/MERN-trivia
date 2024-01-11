@@ -51,6 +51,7 @@ export default function Edit(props) {
         };
 
         //send a post request to update the data in the database
+        
         await fetch(`https://mern-trivia.vercel.app/${params.id}`, {
             method: "POST",
             body: JSON.stringify(editedQuestion),
