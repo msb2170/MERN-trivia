@@ -7,78 +7,71 @@ const express = require('express');
 
 const triviaRoutes = express.Router();
 
-//connect to the database
-const dbo = require("../db/conn");
+const Question = require('../models/Question');
+
+console.log(Question)
 
 //convert id from string to ObjectId for the _id
 const ObjectId = require("mongodb").ObjectId;
 
 //Get a list of all the questions
 
-triviaRoutes.route("/trivia").get((req, res) => {
-    let db_connect = dbo.getDb("Trivia");
-    db_connect
-        .collection("Questions")
-        .find({})
-        .toArray((err, result) => {
-            if (err) throw err;
-            res.json(result);
-        });
+triviaRoutes.route("/trivia").get(async (req, res) => {
+    try {
+        const questions = await Question.find();
+        res.json(questions);
+      } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Error retrieving questions' });
+      }
 });
 
 //Get a single question by its id
-triviaRoutes.route("/trivia/:id").get((req, res) => {
-    let db_connect = dbo.getDb();
-    let myquery = { _id: ObjectId(req.params.id) };
-    db_connect
-        .collection("Questions")
-        .findOne(myquery, (err, result) => {
-            if (err) throw err;
-            res.json(result);
-        });
+triviaRoutes.route("/trivia/:id").get(async (req, res) => {
+    try {
+        const question = await Question.findById(req.params.id);
+        if (!question) return res.status(404).json({ error: 'Question not found' });
+        res.json(question);
+      } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Error retrieving question' });
+      }
 });
 
 //Add a new question
-triviaRoutes.route("/trivia/add").post((req, response) => {
-    let db_connect = dbo.getDb();
-    let myObj = {
-        question: req.body.question,
-        answer: req.body.answer,
-    };
-    db_connect.collection("Questions").insertOne(myObj, (err, res) => {
-        if (err) throw err;
-        response.json(res)
-    });
+triviaRoutes.route("/trivia/add").post(async (req, res) => {
+    try {
+        const question = new Question(req.body);
+        const savedQuestion = await question.save();
+        res.json(savedQuestion);
+      } catch (err) {
+        console.error(err);
+        res.status(400).json({ error: 'Error saving question' });
+      }
 });
 
 //Update a question by id
-triviaRoutes.route("/update/:id").post((req, response) => {
-    let db_connect = dbo.getDb();
-    let myQuery = { _id: ObjectId(req.params.id) };
-    let newvalues = {
-        $set: {
-            question: req.body.question,
-            answer: req.body.answer
-        },
-    };
-    db_connect
-        .collection("Questions")
-        .updateOne(myQuery, newvalues, function (err, res) {
-            if (err) throw err;
-            console.log("1 document updated");
-            response.json(res);
-        });
+triviaRoutes.route("/update/:id").post(async (req, res) => {
+    try {
+        const updatedQuestion = await Question.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (!updatedQuestion) return res.status(404).json({ error: 'Question not found' });
+        res.json(updatedQuestion);
+      } catch (err) {
+        console.error(err);
+        res.status(400).json({ error: 'Error updating question' });
+      }
 });
 
 //delete a question
-triviaRoutes.route("/trivia/:id").delete((req, response) => {
-    let db_connect = dbo.getDb();
-    let myQuery = { _id: ObjectId(req.params.id) };
-    db_connect.collection("Questions").deleteOne(myQuery, (err, obj) => {
-        if (err) throw err;
-        console.log("1 document deleted");
-        response.json(obj);
-    });
+triviaRoutes.route("/trivia/:id").delete(async (req, res) => {
+    try {
+        const deletedQuestion = await Question.findByIdAndDelete(req.params.id);
+        if (!deletedQuestion) return res.status(404).json({ error: 'Question not found' });
+        res.json(deletedQuestion);
+      } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Error deleting question' });
+      }
 });
 
 module.exports = triviaRoutes;

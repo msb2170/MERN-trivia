@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose')
 const app = express();
 const cors = require('cors');
 require('dotenv').config({ path: "./config.env"});
@@ -7,16 +8,20 @@ app.use(cors());
 app.use(cors({
     origin: "https://mern-trivia.vercel.app/"
 }));
+const bodyParser = require("body-parser")
+
 app.use(express.json());
+app.use(bodyParser.json({ limit: "30mb", extended: true }))
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }))
+
+//Mongoose connection
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log('Connected to MongoDB'))
+    .catch(err => console.error('Error connecting to MongoDB:', err));
+
 app.use(require("./routes/record"))
 
-//driver connection
-const dbo = require("./db/conn");
 
 app.listen(port, async () => {
-    //perform db connection upon server startup
-    await dbo.connectToServer((err) => {
-        if (err) console.error(err);
-    });
     console.log(`Server is running on port: ${port}`);
 });
