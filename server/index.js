@@ -6,7 +6,7 @@ require('dotenv').config({ path: "./config.env"});
 const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(cors({
-    origin: "https://mern-trivia.vercel.app/"
+    origin: "https://mern-trivia-one.vercel.app/"
 }));
 const bodyParser = require("body-parser")
 
