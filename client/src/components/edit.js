@@ -52,7 +52,7 @@ export default function Edit(props) {
 
         //send a patch request to update the data in the database
         
-        await fetch(`https://mern-trivia.vercel.app/${params.id}`, {
+        await fetch(`https://mern-trivia.vercel.app/trivia/${params.id}`, {
             method: "PUT",
             body: JSON.stringify(editedQuestion),
             headers: {
