@@ -9,7 +9,7 @@ const triviaRoutes = express.Router();
 
 const Question = require('../models/Question');
 
-console.log(Question)
+
 
 //convert id from string to ObjectId for the _id
 const ObjectId = require("mongodb").ObjectId;
@@ -51,15 +51,19 @@ triviaRoutes.route("/trivia/add").post(async (req, res) => {
 });
 
 //Update a question by id
-triviaRoutes.route("/update/:id").post(async (req, res) => {
-    try {
-        const updatedQuestion = await Question.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        if (!updatedQuestion) return res.status(404).json({ error: 'Question not found' });
-        res.json(updatedQuestion);
-      } catch (err) {
-        console.error(err);
-        res.status(400).json({ error: 'Error updating question' });
-      }
+triviaRoutes.route("/trivia/:id").put(async (req, res) => {
+  try {
+    const objectId = ObjectId(req.params.id);
+    const updatedQuestion = await Question.findByIdAndUpdate(objectId, req.body, { new: true });
+    if (!updatedQuestion) {
+      return res.status(404).json({ error: 'Question not found' });
+    }
+    res.json(updatedQuestion);
+  } catch (err) {
+    console.error(err);
+    // Handle specific errors accordingly
+    return res.status(400).json({ error: 'Error updating question' });
+  }
 });
 
 //delete a question

@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 
 export default function Edit(props) {
+    const params = useParams();
+    const navigate = useNavigate();
     const [question, setQuestion] = useState({
         question: "",
         answer: "",
-        questions: [],
+        id: params.id
     });
-    const params = useParams();
-    const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchQuestions() {
@@ -50,10 +50,10 @@ export default function Edit(props) {
             answer: question.answer
         };
 
-        //send a post request to update the data in the database
+        //send a patch request to update the data in the database
         
         await fetch(`https://mern-trivia.vercel.app/${params.id}`, {
-            method: "POST",
+            method: "PATCH",
             body: JSON.stringify(editedQuestion),
             headers: {
                 "Content-Type": "application/json"
